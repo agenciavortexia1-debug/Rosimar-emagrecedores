@@ -38,7 +38,7 @@ const ASSETS = {
   capsReed: getDriveUrl('1XY8HDWocSiXlgNK7tXaW860-p82DfNTk'),
   capsMounnjaro: getDriveUrl('14EXLxmCaTFIja7f16f7V9uf5_3Lvy_DN'),
   depRosiana: getDriveVideoUrl('142Ox57S9CE2sQAzv9bxY5znuk-IlH-uQ'),
-  depRose: getDriveVideoUrl('1AMZSgvN7E1vLoMBbSX2xB0eQ0YiCU_oT'),
+  depRose: getDriveUrl('1AMZSgvN7E1vLoMBbSX2xB0eQ0YiCU_oT'),
   rosianaAntesDepois: getDriveUrl('1yiwX5vGPJOv1UyL2cXpfnOZNPXNsOUvU'),
 };
 
@@ -598,14 +598,9 @@ Aguardo as instruções para finalizar! 😊`;
 
             {/* Depoimento 2 */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card flex flex-col md:flex-row items-stretch border-none shadow-xl overflow-hidden">
-              <div className="md:w-1/2 aspect-video md:aspect-auto bg-black relative overflow-hidden">
-                <iframe
-                  src={ASSETS.depRose}
-                  className="w-full h-full min-h-[300px]"
-                  style={{ transform: 'scale(1.12)', transformOrigin: 'bottom center' }}
-                  allow="autoplay"
-                  title="Depoimento Rose"
-                />
+              <div className="md:w-1/2 relative">
+                <img src={ASSETS.depRose} alt="Antes e Depois Rose" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0" onClick={(e) => e.preventDefault()} />
               </div>
               <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
                 <div className="flex mb-2">
