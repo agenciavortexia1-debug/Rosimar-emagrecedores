@@ -271,8 +271,6 @@ Aguardo as instruções para finalizar! 😊`;
         >
           Emagrecimento real com acompanhamento diário.
         </motion.h1>
-        <WeightLossAnimation />
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -560,13 +558,14 @@ Aguardo as instruções para finalizar! 😊`;
             {/* Depoimento 1 */}
             <div className="space-y-4">
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card flex flex-col md:flex-row items-stretch border-none shadow-xl overflow-hidden">
-                <div className="md:w-1/2 aspect-video md:aspect-auto bg-black">
-                  <iframe 
-                    src={ASSETS.depRosiana} 
-                    className="w-full h-full min-h-[300px]" 
+                <div className="md:w-1/2 aspect-video md:aspect-auto bg-black relative">
+                  <iframe
+                    src={ASSETS.depRosiana}
+                    className="w-full h-full min-h-[300px]"
                     allow="autoplay"
                     title="Depoimento Rosiana"
                   />
+                  <div className="absolute top-0 right-0 w-14 h-10 bg-black" />
                 </div>
                 <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
                   <div className="flex mb-2">
@@ -599,13 +598,14 @@ Aguardo as instruções para finalizar! 😊`;
 
             {/* Depoimento 2 */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card flex flex-col md:flex-row items-stretch border-none shadow-xl overflow-hidden">
-              <div className="md:w-1/2 aspect-video md:aspect-auto bg-black">
-                <iframe 
-                  src={ASSETS.depRose} 
-                  className="w-full h-full min-h-[300px]" 
+              <div className="md:w-1/2 aspect-video md:aspect-auto bg-black relative">
+                <iframe
+                  src={ASSETS.depRose}
+                  className="w-full h-full min-h-[300px]"
                   allow="autoplay"
                   title="Depoimento Rose"
                 />
+                <div className="absolute top-0 right-0 w-14 h-10 bg-black" />
               </div>
               <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
                 <div className="flex mb-2">
