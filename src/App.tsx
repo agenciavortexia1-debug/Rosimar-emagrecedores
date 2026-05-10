@@ -39,6 +39,7 @@ const ASSETS = {
   capsMounnjaro: getDriveUrl('14EXLxmCaTFIja7f16f7V9uf5_3Lvy_DN'),
   depRosiana: getDriveVideoUrl('142Ox57S9CE2sQAzv9bxY5znuk-IlH-uQ'),
   depRose: getDriveVideoUrl('1AMZSgvN7E1vLoMBbSX2xB0eQ0YiCU_oT'),
+  rosianaAntesDepois: getDriveUrl('1yiwX5vGPJOv1UyL2cXpfnOZNPXNsOUvU'),
 };
 
 const WHATSAPP_NUMBER = '5592993853299';
@@ -160,12 +161,23 @@ Aguardo as instruções para finalizar! 😊`;
           <p className="text-lg text-gray-600 max-w-lg mx-auto">
             Emagrecimento real com acompanhamento diário.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-primary/60 bg-primary/5 px-3 py-1 rounded-full">
+          <div className="flex flex-wrap justify-center gap-3 mt-4">
+            <motion.span 
+              animate={{ x: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary/70 bg-primary/5 px-4 py-2 rounded-full border border-primary/10"
+            >
               <Truck size={14} /> Entrega em todo o Brasil
-            </span>
-            <span className="flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-accent bg-accent/5 px-3 py-1 rounded-full border border-accent/20">
-              <Star size={14} className="fill-accent" /> FRETE GRÁTIS PARA MANAUS
+            </motion.span>
+            <motion.span 
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-white bg-accent px-4 py-2 rounded-full shadow-lg shadow-accent/20"
+            >
+              <Star size={14} className="fill-white" /> FRETE GRÁTIS: MANAUS & SÃO PAULO
+            </motion.span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mt-2 block w-full">
+              Demais regiões consultar o frete
             </span>
           </div>
         </motion.div>
@@ -296,13 +308,13 @@ Aguardo as instruções para finalizar! 😊`;
             <h3 className="font-display font-bold text-xl mb-6 text-primary">O que vem incluso:</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8">
               {[
-                "30 cápsulas premium",
+                "Entrega GRÁTIS: Manaus & SP",
+                "Brasil: Consultar Frete",
                 "Cardápio exclusivo",
                 "Instruções detalhadas",
                 "Grupo VIP de alunas",
                 "Acompanhamento diário",
-                "Plataforma de progresso",
-                "Entrega GRÁTIS em Manaus"
+                "Plataforma de progresso"
               ].map((item, id) => (
                 <div key={id} className="flex items-center gap-3 text-gray-700">
                   <div className="w-2 h-2 rounded-full bg-accent" />
@@ -354,7 +366,7 @@ Aguardo as instruções para finalizar! 😊`;
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
             <div className="p-8 bg-primary rounded-3xl text-white">
               <h3 className="font-display font-bold text-2xl mb-6">Para quem é?</h3>
               <ul className="space-y-4">
@@ -393,6 +405,26 @@ Aguardo as instruções para finalizar! 😊`;
               </div>
             </div>
           </div>
+
+          <div className="card p-8 border-none bg-primary/5">
+            <h3 className="font-display font-bold text-xl mb-6 text-primary">O que vem incluso:</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8">
+              {[
+                "30 cápsulas exclusivas",
+                "Entrega GRÁTIS: Manaus & SP",
+                "Brasil: Consultar Frete",
+                "Cardápio exclusivo",
+                "Grupo VIP de alunas",
+                "Acompanhamento diário",
+                "Entrega para todo o Brasil"
+              ].map((item, id) => (
+                <div key={id} className="flex items-center gap-3 text-gray-700">
+                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <span className="text-sm font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -405,25 +437,44 @@ Aguardo as instruções para finalizar! 😊`;
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Depoimento 1 */}
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card flex flex-col md:flex-row items-stretch border-none shadow-xl overflow-hidden">
-              <div className="md:w-1/2 aspect-video md:aspect-auto bg-black">
-                <iframe 
-                  src={ASSETS.depRosiana} 
-                  className="w-full h-full min-h-[300px]" 
-                  allow="autoplay"
-                  title="Depoimento Rosiana"
-                />
-              </div>
-              <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
-                <div className="flex mb-2">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-accent text-accent" />)}
+            <div className="space-y-4">
+              <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card flex flex-col md:flex-row items-stretch border-none shadow-xl overflow-hidden">
+                <div className="md:w-1/2 aspect-video md:aspect-auto bg-black">
+                  <iframe 
+                    src={ASSETS.depRosiana} 
+                    className="w-full h-full min-h-[300px]" 
+                    allow="autoplay"
+                    title="Depoimento Rosiana"
+                  />
                 </div>
-                <h4 className="font-bold text-xl mb-2">Rosiana</h4>
-                <p className="text-gray-600 text-sm italic">
-                  "Menos 25kg na balança! Nunca imaginei que conseguiria sem passar fome. O acompanhamento diário mudou meu jogo."
-                </p>
-              </div>
-            </motion.div>
+                <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
+                  <div className="flex mb-2">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-accent text-accent" />)}
+                  </div>
+                  <h4 className="font-bold text-xl mb-2">Rosiana</h4>
+                  <p className="text-gray-600 text-sm italic">
+                    "Menos 25kg na balança! Nunca imaginei que conseguiria sem passar fome. O acompanhamento diário mudou meu jogo."
+                  </p>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="card border-accent/20 overflow-hidden"
+              >
+                <div className="bg-accent/10 py-2 text-center text-[10px] font-bold uppercase tracking-widest text-accent">
+                  Antes e Depois — Rosiana
+                </div>
+                <img 
+                  src={ASSETS.rosianaAntesDepois} 
+                  alt="Antes e Depois Rosiana" 
+                  className="w-full h-auto" 
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+            </div>
 
             {/* Depoimento 2 */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card flex flex-col md:flex-row items-stretch border-none shadow-xl overflow-hidden">
@@ -664,8 +715,10 @@ Aguardo as instruções para finalizar! 😊`;
           </a>
         </p>
         <p className="text-sm text-gray-500 mb-2">© 2025 — Enviamos para todo o Brasil</p>
-        <div className="flex flex-col md:flex-row justify-center gap-4 text-xs text-gray-400">
-          <span className="flex items-center gap-1"><Truck size={12} /> Frete Grátis para Manaus</span>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-gray-400">
+          <span className="flex items-center gap-1"><Truck size={12} /> Frete Grátis: Manaus & São Paulo</span>
+          <span className="w-1 h-1 bg-gray-300 rounded-full hidden md:block" />
+          <span>Demais regiões: Consultar frete</span>
           <span className="flex items-center gap-1"><ShieldCheck size={12} /> Produto Original</span>
         </div>
       </footer>
