@@ -47,6 +47,57 @@ const INSTAGRAM_URL = 'https://www.instagram.com/rosimar_emagrecedores/';
 
 type Product = 'Mounnjaro' | 'Mounjaro Reed';
 
+function WeightLossAnimation() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+      className="flex flex-col items-center my-4"
+    >
+      <style>{`
+        .body-slim {
+          transform-origin: 100px 120px;
+          animation: getSlim 3.5s ease-in-out infinite;
+        }
+        .capsule-go { animation: takePill 3.5s ease-in-out infinite; }
+        .after-glow { animation: shine 3.5s ease-in-out infinite; }
+        @keyframes getSlim {
+          0%, 20%  { transform: scaleX(2.0); }
+          55%, 80% { transform: scaleX(0.65); }
+          100%     { transform: scaleX(2.0); }
+        }
+        @keyframes takePill {
+          0%   { opacity: 0; transform: translate(45px, -15px) rotate(-20deg); }
+          18%  { opacity: 1; transform: translate(15px, 0px) rotate(0deg); }
+          32%  { opacity: 0; transform: translate(0px, 5px) rotate(10deg); }
+          100% { opacity: 0; }
+        }
+        @keyframes shine {
+          0%, 30%  { opacity: 0; transform: scale(0.8); }
+          50%      { opacity: 1; transform: scale(1.1); }
+          75%, 100%{ opacity: 0; transform: scale(1.3); }
+        }
+      `}</style>
+      <svg viewBox="0 0 200 210" className="w-36 md:w-44" aria-hidden="true">
+        <ellipse className="after-glow" cx="100" cy="130" rx="38" ry="50" fill="#86efac" opacity="0.4"/>
+        <circle cx="100" cy="50" r="22" fill="#2d5f4f" opacity="0.85"/>
+        <path d="M91 56 Q100 63 109 56" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+        <circle cx="93" cy="47" r="3" fill="white"/>
+        <circle cx="107" cy="47" r="3" fill="white"/>
+        <ellipse className="body-slim" cx="100" cy="130" rx="28" ry="52" fill="#2d5f4f" opacity="0.75"/>
+        <ellipse cx="88" cy="192" rx="9" ry="14" fill="#2d5f4f" opacity="0.6"/>
+        <ellipse cx="112" cy="192" rx="9" ry="14" fill="#2d5f4f" opacity="0.6"/>
+        <g className="capsule-go">
+          <rect x="74" y="60" width="28" height="13" rx="6.5" fill="#c9a96e"/>
+          <rect x="74" y="60" width="14" height="13" rx="6.5" fill="#f0dcaa"/>
+        </g>
+      </svg>
+      <p className="text-[10px] font-bold uppercase tracking-widest text-primary/40 mt-1">Resultados em 30 dias</p>
+    </motion.div>
+  );
+}
+
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product>('Mounnjaro');
   const [formData, setFormData] = useState({
@@ -150,16 +201,18 @@ Aguardo as instruções para finalizar! 😊`;
           animate={{ opacity: 1, y: 0 }}
           className="font-display text-4xl md:text-6xl font-black text-primary leading-tight mb-4"
         >
-          Pare de Travar.<br/>Comece a Emagrecer.
+          Emagrecimento real com acompanhamento diário.
         </motion.h1>
-        <motion.div 
+        <WeightLossAnimation />
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="flex flex-col items-center gap-2 mb-10"
         >
           <p className="text-lg text-gray-600 max-w-lg mx-auto">
-            Emagrecimento real com acompanhamento diário.
+            Dois produtos. Um objetivo: você mais leve e saudável.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             <motion.span 
@@ -203,14 +256,14 @@ Aguardo as instruções para finalizar! 😊`;
           <motion.div 
             whileHover={{ y: -5 }}
             onClick={() => scrollToForm('Mounjaro Reed')}
-            className="card p-6 cursor-pointer border-2 border-transparent hover:border-accent transition-colors group"
+            className="card p-6 cursor-pointer border-2 border-transparent hover:border-[#dc2626] transition-colors group"
           >
             <div className="aspect-square relative mb-4">
               <img src={ASSETS.reed} alt="Mounjaro Reed" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
             </div>
             <h3 className="font-display font-bold text-xl mb-2 text-primary">Mounjaro Reed</h3>
             <p className="text-sm text-gray-500 mb-4 italic">Para quem travou no peso</p>
-            <div className="btn-primary !bg-accent group-hover:scale-105">
+            <div className="btn-primary !bg-[#dc2626] group-hover:scale-105">
               Ver produto <ArrowRight size={18} />
             </div>
           </motion.div>
@@ -335,15 +388,15 @@ Aguardo as instruções para finalizar! 😊`;
               <img src={ASSETS.capsReed} alt="Cápsulas" className="w-full rounded-2xl mt-8" referrerPolicy="no-referrer" />
             </div>
             <div className="order-1 lg:order-2">
-              <span className="badge bg-accent text-white">PARA QUEM TRAVOU NO PESO</span>
+              <span className="badge bg-[#dc2626] text-white">PARA QUEM TRAVOU NO PESO</span>
               <h2 className="font-display text-3xl md:text-4xl font-black text-primary mb-6">
                 Mounjaro Reed: Destrave Seu Emagrecimento e Volte a Emagrecer Rápido
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 O único inibidor formulado para quem travou no peso e precisa sair do platô de uma vez por todas.
               </p>
-              <div className="text-4xl font-black text-accent mb-8">R$ 250,00</div>
-              <button onClick={() => scrollToForm('Mounjaro Reed')} className="btn-primary !bg-accent w-full md:w-auto">
+              <div className="text-4xl font-black text-[#dc2626] mb-8">R$ 250,00</div>
+              <button onClick={() => scrollToForm('Mounjaro Reed')} className="btn-primary !bg-[#dc2626] w-full md:w-auto">
                 QUERO O MOUNJARO REED → R$ 250
               </button>
             </div>
@@ -358,8 +411,8 @@ Aguardo as instruções para finalizar! 😊`;
               { n: "Berberina", f: "Controle glicêmico" },
               { n: "Tirzepatida", f: "Fórmula análoga" }
             ].map((item, id) => (
-              <div key={id} className="card p-4 text-center hover:border-accent transition-colors">
-                <Zap className="mx-auto mb-2 text-accent" size={20} />
+              <div key={id} className="card p-4 text-center hover:border-[#dc2626] transition-colors">
+                <Zap className="mx-auto mb-2 text-[#dc2626]" size={20} />
                 <h5 className="font-black text-xs uppercase mb-1 tracking-wider">{item.n}</h5>
                 <p className="text-[10px] text-gray-500 leading-tight">{item.f}</p>
               </div>
@@ -392,7 +445,7 @@ Aguardo as instruções para finalizar! 😊`;
                   { title: "Dias 16–30: Resultados", desc: "Protocolo completo com foco máximo em água." }
                 ].map((step, id) => (
                   <div key={id} className="flex gap-4">
-                    <div className="font-black text-accent text-4xl">{id + 1}</div>
+                    <div className="font-black text-[#dc2626] text-4xl">{id + 1}</div>
                     <div>
                       <h4 className="font-bold text-primary">{step.title}</h4>
                       <p className="text-sm text-gray-600">{step.desc}</p>
@@ -541,7 +594,7 @@ Aguardo as instruções para finalizar! 😊`;
                 </button>
                 <button 
                   onClick={() => setSelectedProduct('Mounjaro Reed')}
-                  className={`py-3 px-4 rounded-lg text-sm font-bold transition-all ${selectedProduct === 'Mounjaro Reed' ? 'bg-accent text-white shadow-md' : 'text-gray-500 hover:bg-black/5'}`}
+                  className={`py-3 px-4 rounded-lg text-sm font-bold transition-all ${selectedProduct === 'Mounjaro Reed' ? 'bg-[#dc2626] text-white shadow-md' : 'text-gray-500 hover:bg-black/5'}`}
                 >
                   Mounjaro Reed<br/><span className="text-[10px] opacity-70">R$ 250</span>
                 </button>
