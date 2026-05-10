@@ -310,6 +310,7 @@ Aguardo as instruções para finalizar! 😊`;
           >
             <div className="aspect-square relative mb-4">
               <img src={ASSETS.mounnjaro} alt="Mounnjaro" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+              <div className="absolute inset-0" onClick={(e) => e.preventDefault()} />
             </div>
             <h3 className="font-display font-bold text-xl mb-2 text-mounnjaro">Mounnjaro</h3>
             <p className="text-sm text-gray-500 mb-4 italic">Para quem está começando</p>
@@ -326,6 +327,7 @@ Aguardo as instruções para finalizar! 😊`;
           >
             <div className="aspect-square relative mb-4">
               <img src={ASSETS.reed} alt="Mounjaro Reed" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+              <div className="absolute inset-0" onClick={(e) => e.preventDefault()} />
             </div>
             <h3 className="font-display font-bold text-xl mb-2 text-primary">Mounjaro Reed</h3>
             <p className="text-sm text-gray-500 mb-4 italic">Para quem travou no peso</p>
@@ -354,8 +356,8 @@ Aguardo as instruções para finalizar! 😊`;
               </button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src={ASSETS.mounnjaro} alt="Mounnjaro" className="w-full rounded-2xl" referrerPolicy="no-referrer" />
-              <img src={ASSETS.capsMounnjaro} alt="Cápsulas" className="w-full rounded-2xl mt-8" referrerPolicy="no-referrer" />
+              <div className="relative"><img src={ASSETS.mounnjaro} alt="Mounnjaro" className="w-full rounded-2xl" referrerPolicy="no-referrer" /><div className="absolute inset-0" onClick={(e) => e.preventDefault()} /></div>
+              <div className="relative mt-8"><img src={ASSETS.capsMounnjaro} alt="Cápsulas" className="w-full rounded-2xl" referrerPolicy="no-referrer" /><div className="absolute inset-0" onClick={(e) => e.preventDefault()} /></div>
             </div>
           </div>
 
@@ -450,8 +452,8 @@ Aguardo as instruções para finalizar! 😊`;
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
-              <img src={ASSETS.reed} alt="Mounjaro Reed" className="w-full rounded-2xl" referrerPolicy="no-referrer" />
-              <img src={ASSETS.capsReed} alt="Cápsulas" className="w-full rounded-2xl mt-8" referrerPolicy="no-referrer" />
+              <div className="relative"><img src={ASSETS.reed} alt="Mounjaro Reed" className="w-full rounded-2xl" referrerPolicy="no-referrer" /><div className="absolute inset-0" onClick={(e) => e.preventDefault()} /></div>
+              <div className="relative mt-8"><img src={ASSETS.capsReed} alt="Cápsulas" className="w-full rounded-2xl" referrerPolicy="no-referrer" /><div className="absolute inset-0" onClick={(e) => e.preventDefault()} /></div>
             </div>
             <div className="order-1 lg:order-2">
               <span className="badge bg-[#dc2626] text-white">PARA QUEM TRAVOU NO PESO</span>
@@ -565,7 +567,7 @@ Aguardo as instruções para finalizar! 😊`;
                     allow="autoplay"
                     title="Depoimento Rosiana"
                   />
-                  <div className="absolute top-0 right-0 w-14 h-10 bg-black" />
+                  <div className="absolute top-0 right-0 w-16 h-12" onClick={(e) => e.preventDefault()} />
                 </div>
                 <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
                   <div className="flex mb-2">
@@ -587,12 +589,10 @@ Aguardo as instruções para finalizar! 😊`;
                 <div className="bg-accent/10 py-2 text-center text-[10px] font-bold uppercase tracking-widest text-accent">
                   Antes e Depois — Rosiana
                 </div>
-                <img 
-                  src={ASSETS.rosianaAntesDepois} 
-                  alt="Antes e Depois Rosiana" 
-                  className="w-full h-auto" 
-                  referrerPolicy="no-referrer"
-                />
+                <div className="relative">
+                  <img src={ASSETS.rosianaAntesDepois} alt="Antes e Depois Rosiana" className="w-full h-auto" referrerPolicy="no-referrer" />
+                  <div className="absolute inset-0" onClick={(e) => e.preventDefault()} />
+                </div>
               </motion.div>
             </div>
 
@@ -605,7 +605,7 @@ Aguardo as instruções para finalizar! 😊`;
                   allow="autoplay"
                   title="Depoimento Rose"
                 />
-                <div className="absolute top-0 right-0 w-14 h-10 bg-black" />
+                <div className="absolute top-0 right-0 w-16 h-12" onClick={(e) => e.preventDefault()} />
               </div>
               <div className="md:w-1/2 p-6 flex flex-col justify-center bg-white">
                 <div className="flex mb-2">
