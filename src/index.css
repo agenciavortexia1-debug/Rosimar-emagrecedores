@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2d5f4f;
+  --color-bg: #f5f1ed;
+  --color-accent: #c9a96e;
+  --color-mounnjaro: #1e3d4f;
+  --color-reed: #2d5f4f;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-[#1a1a1a] font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white py-4 px-8 rounded-lg font-bold text-center transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase mb-4;
+  }
+}
