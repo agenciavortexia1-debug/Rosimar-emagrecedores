@@ -16,6 +16,11 @@
     @apply bg-bg text-[#1a1a1a] font-sans;
     scroll-behavior: smooth;
   }
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
 }
 
 @layer components {

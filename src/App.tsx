@@ -56,44 +56,112 @@ function WeightLossAnimation() {
       className="flex flex-col items-center my-4"
     >
       <style>{`
-        .body-slim {
-          transform-origin: 100px 120px;
-          animation: getSlim 3.5s ease-in-out infinite;
+        .wl-body {
+          transform-origin: 160px 118px;
+          animation: wlSlim 4s ease-in-out infinite;
         }
-        .capsule-go { animation: takePill 3.5s ease-in-out infinite; }
-        .after-glow { animation: shine 3.5s ease-in-out infinite; }
-        @keyframes getSlim {
-          0%, 20%  { transform: scaleX(2.0); }
-          55%, 80% { transform: scaleX(0.65); }
-          100%     { transform: scaleX(2.0); }
+        .wl-arm-l {
+          transform-origin: 148px 100px;
+          animation: wlArmL 4s ease-in-out infinite;
         }
-        @keyframes takePill {
-          0%   { opacity: 0; transform: translate(45px, -15px) rotate(-20deg); }
-          18%  { opacity: 1; transform: translate(15px, 0px) rotate(0deg); }
-          32%  { opacity: 0; transform: translate(0px, 5px) rotate(10deg); }
-          100% { opacity: 0; }
+        .wl-arm-r {
+          transform-origin: 172px 100px;
+          animation: wlArmR 4s ease-in-out infinite;
         }
-        @keyframes shine {
-          0%, 30%  { opacity: 0; transform: scale(0.8); }
-          50%      { opacity: 1; transform: scale(1.1); }
-          75%, 100%{ opacity: 0; transform: scale(1.3); }
+        .wl-pill { animation: wlPill 4s ease-in-out infinite; }
+        .wl-label { animation: wlLabel 4s ease-in-out infinite; }
+        .wl-spark { animation: wlSpark 4s ease-in-out infinite; }
+        .wl-arrow { animation: wlArrow 4s ease-in-out infinite; }
+        @keyframes wlSlim {
+          0%, 18%  { transform: scaleX(1.85) scaleY(1.1); }
+          52%, 82% { transform: scaleX(0.6) scaleY(1); }
+          100%     { transform: scaleX(1.85) scaleY(1.1); }
+        }
+        @keyframes wlArmL {
+          0%, 18%  { transform: rotate(0deg); }
+          28%      { transform: rotate(-35deg); }
+          52%, 100%{ transform: rotate(0deg); }
+        }
+        @keyframes wlArmR {
+          0%, 18%  { transform: rotate(0deg); }
+          28%      { transform: rotate(35deg); }
+          52%, 100%{ transform: rotate(0deg); }
+        }
+        @keyframes wlPill {
+          0%   { opacity: 0; transform: translate(0px, -30px); }
+          12%  { opacity: 1; transform: translate(0px, -5px); }
+          26%  { opacity: 0; transform: translate(0px, 5px); }
+          100% { opacity: 0; transform: translate(0px, 5px); }
+        }
+        @keyframes wlLabel {
+          0%, 45%  { opacity: 0; }
+          60%      { opacity: 1; }
+          82%, 100%{ opacity: 0; }
+        }
+        @keyframes wlSpark {
+          0%, 28%  { opacity: 0; }
+          45%      { opacity: 1; }
+          65%, 100%{ opacity: 0; }
+        }
+        @keyframes wlArrow {
+          0%, 48%  { opacity: 0; transform: translateX(-6px); }
+          65%      { opacity: 1; transform: translateX(0px); }
+          85%, 100%{ opacity: 0; transform: translateX(4px); }
         }
       `}</style>
-      <svg viewBox="0 0 200 210" className="w-36 md:w-44" aria-hidden="true">
-        <ellipse className="after-glow" cx="100" cy="130" rx="38" ry="50" fill="#86efac" opacity="0.4"/>
-        <circle cx="100" cy="50" r="22" fill="#2d5f4f" opacity="0.85"/>
-        <path d="M91 56 Q100 63 109 56" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-        <circle cx="93" cy="47" r="3" fill="white"/>
-        <circle cx="107" cy="47" r="3" fill="white"/>
-        <ellipse className="body-slim" cx="100" cy="130" rx="28" ry="52" fill="#2d5f4f" opacity="0.75"/>
-        <ellipse cx="88" cy="192" rx="9" ry="14" fill="#2d5f4f" opacity="0.6"/>
-        <ellipse cx="112" cy="192" rx="9" ry="14" fill="#2d5f4f" opacity="0.6"/>
-        <g className="capsule-go">
-          <rect x="74" y="60" width="28" height="13" rx="6.5" fill="#c9a96e"/>
-          <rect x="74" y="60" width="14" height="13" rx="6.5" fill="#f0dcaa"/>
+      <svg viewBox="0 80 320 180" className="w-64 md:w-80" aria-hidden="true">
+        {/* ── BEFORE figure (left) ── */}
+        <text x="52" y="95" textAnchor="middle" fontSize="9" fill="#555" fontFamily="sans-serif" fontWeight="bold" letterSpacing="1">ANTES</text>
+        {/* head */}
+        <circle cx="52" cy="108" r="16" fill="#222" />
+        <circle cx="46" cy="105" r="2.5" fill="white"/>
+        <circle cx="58" cy="105" r="2.5" fill="white"/>
+        <path d="M46 113 Q52 118 58 113" fill="none" stroke="#888" strokeWidth="1.8" strokeLinecap="round"/>
+        {/* body fat */}
+        <ellipse cx="52" cy="148" rx="26" ry="35" fill="#444" />
+        {/* arms */}
+        <line x1="52" y1="128" x2="20" y2="148" stroke="#333" strokeWidth="7" strokeLinecap="round"/>
+        <line x1="52" y1="128" x2="84" y2="148" stroke="#333" strokeWidth="7" strokeLinecap="round"/>
+        {/* legs */}
+        <ellipse cx="42" cy="191" rx="8" ry="13" fill="#333"/>
+        <ellipse cx="62" cy="191" rx="8" ry="13" fill="#333"/>
+
+        {/* ── ARROW in the middle ── */}
+        <g className="wl-arrow">
+          <line x1="130" y1="148" x2="188" y2="148" stroke="#222" strokeWidth="2.5" strokeLinecap="round"/>
+          <polyline points="183,142 190,148 183,154" fill="none" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        <g className="wl-pill">
+          <rect x="143" y="128" width="32" height="14" rx="7" fill="#222"/>
+          <rect x="143" y="128" width="16" height="14" rx="7" fill="#888"/>
+          <line x1="159" y1="128" x2="159" y2="142" stroke="#555" strokeWidth="1"/>
+          <text x="159" y="122" textAnchor="middle" fontSize="8" fill="#444" fontFamily="sans-serif">CÁPSULA</text>
+        </g>
+
+        {/* ── AFTER figure (right) ── */}
+        <text x="268" y="95" textAnchor="middle" fontSize="9" fill="#555" fontFamily="sans-serif" fontWeight="bold" letterSpacing="1">DEPOIS</text>
+        {/* head */}
+        <circle cx="268" cy="108" r="16" fill="#222" />
+        <circle cx="262" cy="105" r="2.5" fill="white"/>
+        <circle cx="274" cy="105" r="2.5" fill="white"/>
+        {/* smile after */}
+        <path d="M262 113 Q268 120 274 113" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+        {/* body slim */}
+        <ellipse cx="268" cy="148" rx="13" ry="35" fill="#222" />
+        {/* arms up (victory) */}
+        <line x1="268" y1="128" x2="248" y2="110" stroke="#333" strokeWidth="7" strokeLinecap="round"/>
+        <line x1="268" y1="128" x2="288" y2="110" stroke="#333" strokeWidth="7" strokeLinecap="round"/>
+        {/* legs */}
+        <ellipse cx="260" cy="191" rx="7" ry="12" fill="#333"/>
+        <ellipse cx="276" cy="191" rx="7" ry="12" fill="#333"/>
+        {/* sparkles */}
+        <g className="wl-spark">
+          <text x="295" y="108" fontSize="13" fill="#555">✦</text>
+          <text x="238" y="100" fontSize="9" fill="#777">✦</text>
+          <text x="300" y="125" fontSize="8" fill="#888">✦</text>
         </g>
       </svg>
-      <p className="text-[10px] font-bold uppercase tracking-widest text-primary/40 mt-1">Resultados em 30 dias</p>
+      <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mt-1">Resultados em 30 dias</p>
     </motion.div>
   );
 }
@@ -199,7 +267,7 @@ Aguardo as instruções para finalizar! 😊`;
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-display text-4xl md:text-6xl font-black text-primary leading-tight mb-4"
+          className="font-display text-2xl md:text-5xl font-black text-primary leading-tight mb-4"
         >
           Emagrecimento real com acompanhamento diário.
         </motion.h1>
@@ -277,7 +345,7 @@ Aguardo as instruções para finalizar! 😊`;
             <div className="relative">
               <span className="badge bg-mounnjaro/10 text-mounnjaro">PARA QUEM ESTÁ COMEÇANDO</span>
               <h2 className="font-display text-3xl md:text-4xl font-black text-mounnjaro mb-6">
-                Mounnjaro: Finalmente Um Inibidor Que Funciona DE VERDADE
+                Um Inibidor Que Funciona DE VERDADE
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 A fórmula completa que tira o apetite, detoxifica o corpo e dá o suporte que você nunca teve para começar a emagrecer de vez.
@@ -390,7 +458,7 @@ Aguardo as instruções para finalizar! 😊`;
             <div className="order-1 lg:order-2">
               <span className="badge bg-[#dc2626] text-white">PARA QUEM TRAVOU NO PESO</span>
               <h2 className="font-display text-3xl md:text-4xl font-black text-primary mb-6">
-                Mounjaro Reed: Destrave Seu Emagrecimento e Volte a Emagrecer Rápido
+                Destrave Seu Emagrecimento e Volte a Emagrecer Rápido
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 O único inibidor formulado para quem travou no peso e precisa sair do platô de uma vez por todas.
