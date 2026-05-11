@@ -796,7 +796,7 @@ Aguardo as instruções para finalizar! 😊`;
             <div className="space-y-2">
               <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">Meio de Pagamento</label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                {['PIX', 'Cartão', 'Dinheiro'].map((method) => (
+                {['PIX', 'Cartão'].map((method) => (
                   <label key={method} className={`relative flex items-center justify-center p-4 rounded-xl border-2 cursor-pointer transition-all ${formData.payment === method ? 'border-primary bg-primary/5 font-bold' : 'border-bg hover:bg-black/5'}`}>
                     <input 
                       type="radio" 
