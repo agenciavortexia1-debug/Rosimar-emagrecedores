@@ -407,7 +407,7 @@ Aguardo as instruções para finalizar! 😊`;
               <div className="space-y-6">
                 {[
                   { title: "Dias 1–7: Adaptação", desc: "Tome 1 cápsula em dias alternados (dia sim, dia não)." },
-                  { title: "Dias 8–15: Regularidade", desc: "Tome 1 cápsula todos os dias no mesmo horário." },
+                  { title: "Dias 8–15: Regularidade", desc: "Tome 1 cápsula todos os dias apos o cafe da manha." },
                   { title: "Dias 16–30: Resultados", desc: "Consumo de água para acelerar." }
                 ].map((step, id) => (
                   <div key={id} className="flex gap-4">
@@ -509,7 +509,7 @@ Aguardo as instruções para finalizar! 😊`;
               <div className="space-y-6">
                 {[
                   { title: "Dias 1–7: Adaptação", desc: "Tome 1 cápsula em dias alternados." },
-                  { title: "Dias 8–15: Regularidade", desc: "Tome 1 cápsula todos os dias no mesmo horário." },
+                  { title: "Dias 8–15: Regularidade", desc: "Tome 1 cápsula todos os dias apos o cafe da manha." },
                   { title: "Dias 16–30: Resultados", desc: "Protocolo completo com foco máximo em água." }
                 ].map((step, id) => (
                   <div key={id} className="flex gap-4">
