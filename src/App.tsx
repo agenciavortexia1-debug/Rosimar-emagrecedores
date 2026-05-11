@@ -269,7 +269,7 @@ Aguardo as instruções para finalizar! 😊`;
           animate={{ opacity: 1, y: 0 }}
           className="font-display text-2xl md:text-5xl font-black text-primary leading-tight mb-4"
         >
-          Emagrecimento real com acompanhamento diário.
+          Mais que emagrecer: voltar a se sentir bem consigo mesmo
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -408,7 +408,7 @@ Aguardo as instruções para finalizar! 😊`;
                 {[
                   { title: "Dias 1–7: Adaptação", desc: "Tome 1 cápsula em dias alternados (dia sim, dia não)." },
                   { title: "Dias 8–15: Regularidade", desc: "Tome 1 cápsula todos os dias no mesmo horário." },
-                  { title: "Dias 16–30: Resultados", desc: "Foco total na dieta e consumo de água para acelerar." }
+                  { title: "Dias 16–30: Resultados", desc: "Consumo de água para acelerar." }
                 ].map((step, id) => (
                   <div key={id} className="flex gap-4">
                     <div className="font-black text-mounnjaro/20 text-4xl">{id + 1}</div>
